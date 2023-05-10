@@ -16,7 +16,6 @@ long_description = (pwd / "README.md").read_text()
 
 install_requires = [
     'coreapi',
-    'openapi-codec',
 ]
 
 setup(name='colander-python-client',
