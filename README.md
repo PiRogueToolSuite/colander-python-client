@@ -1,4 +1,4 @@
-# colander python client
+# Colander Python 3 client
 
 Colander REST API python implementation.
 
@@ -20,7 +20,7 @@ _Refer to Colander documentation for data type explanation._
 ### Instancing
 
 ```python
-from colander_python_client.client import Client
+from colander_client.client import Client
 
 base_url = 'https://my-colander-server'
 api_key = 'my-user-api-key'
@@ -35,7 +35,7 @@ The library also support the following environment variables :
 Having such environment variables set, you can just do:
 
 ```python
-from colander_python_client.client import Client
+from colander_client.client import Client
 
 client = Client()
 ```
