@@ -176,9 +176,14 @@ class Client:
 
                     addr += len(buf)
 
-        if not last_response['eof'] or not last_response['status'] == 'SUCCEEDED':
-            progress_callback(filepath, 100, 'failed')
-            raise Exception("Upload failed somehow")
+        if last_response is None:
+            if size > 0:
+                progress_callback(filepath, 100, 'failed')
+                raise Exception("Upload failed with no response but stuff to do")
+        else:
+            if not last_response['eof'] or not last_response['status'] == 'SUCCEEDED':
+                progress_callback(filepath, 100, 'failed')
+                raise Exception("Upload failed somehow")
 
         progress_callback(filepath, 100, 'complete')
 
