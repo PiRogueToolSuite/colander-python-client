@@ -16,4 +16,4 @@ Architecture: all
 Depends: ${misc:Depends},
  ${python3:Depends},
  python3-coreapi,
-Description: Scarlet Shark REST API Python client.
+Description: Colander REST API Python client.

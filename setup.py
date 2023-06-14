@@ -20,7 +20,7 @@ install_requires = [
 
 setup(
     name='colander-client',
-    version='1.0.0',
+    version='1.0.1',
     description='Colander REST API Python client',
     long_description=long_description,
     long_description_content_type='text/markdown',
