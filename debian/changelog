@@ -1,3 +1,9 @@
+python3-colander-client (1.0.2) unstable; urgency=medium
+
+  * Supports searching for exiting devices by case and or by name. Supports searching cases by name.
+
+ -- U+039b <hello@pts-project.org>  Fri, 16 Jun 2023 16:16:05 +0200
+
 python3-colander-client (1.0.1) unstable; urgency=medium
 
   * Fix empty file sized uploads not supported 
