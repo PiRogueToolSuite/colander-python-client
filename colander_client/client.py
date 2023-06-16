@@ -77,8 +77,14 @@ class Client:
     def get_case(self, case_id):
         return self._action(['cases', 'read'], {'id': case_id})
 
-    def get_cases(self):
-        return self._action(['cases', 'list'])
+    def get_cases(self, name=None):
+
+        # Query crafting
+        search_params = dict()
+        if name is not None:
+            search_params['name'] = name
+
+        return self._action(['cases', 'list'], search_params, validate=False)
 
     def get_artifact_types(self):
         return self._action(['artifact_types', 'list'])
@@ -250,6 +256,26 @@ class Client:
 
     def get_device_by_id(self, device_id):
         return self._action(['devices', 'read'], {'id': device_id})
+
+    def get_devices(self, case=None, name=None):
+
+        # Inputs assertion
+        # Here we can query without case_id if needed
+        #if self._current_case is None and case is None:
+        #    raise Exception("No current case set (use switch_case or provide it at function call)")
+
+        # Sanitize inputs
+        if case is None:
+            case = self._current_case
+
+        # Query crafting
+        search_params = dict()
+        if case is not None:
+            search_params['case_id'] = case['id']
+        if name is not None:
+            search_params['name'] = name
+
+        return self._action(['devices', 'list'], search_params, validate=False)
 
     def create_device(self, name=None, case=None, device_type=None, extra_params=None):
         if name is None:
