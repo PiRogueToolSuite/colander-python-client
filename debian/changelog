@@ -1,3 +1,9 @@
+python3-colander-client (1.1.0) UNRELEASED; urgency=medium
+
+  * New upstream release, targeting Debian 12.
+
+ -- Cyril Brulebois <cyril@debamax.com>  Sat, 24 Jun 2023 02:16:25 +0200
+
 python3-colander-client (1.0.2) unstable; urgency=medium
 
   * Supports searching for exiting devices by case and or by name. Supports searching cases by name.
