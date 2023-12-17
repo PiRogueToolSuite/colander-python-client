@@ -1,10 +1,19 @@
-# Colander Python 3 client
-
-Colander REST API python implementation.
-
-Brings your project the ability to populate your [Colander](https://github.com/PiRogueToolSuite/colander) instance with interesting collected datas.
-
+<div align="center">
+<img width="60px" src="https://pts-project.org/android-chrome-512x512.png">
+<h1>Python 3 Colander REST client</h1>
+<p>
+Brings your project the ability to populate your <a href="https://github.com/PiRogueToolSuite/colander" alt="Colander repository">Colander</a> server with collected data.
+</p>
+<p>
 License: GPLv3
+</p>
+</div>
+
+## Installation
+
+```
+pip install colander-client
+```
 
 ## Project status
 
