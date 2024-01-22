@@ -18,10 +18,10 @@ pip install colander-client
 ## Project status
 
 * Case : Query
-* Devices : Query / Create / Update
-* Observables : Query / Create / Update
-* PiRogueExperiment : Query / Create / Update
-* Artifacts : Query / Create / Update
+* Devices : Query / Create
+* Observables : Query / Create
+* PiRogueExperiment : Query / Create
+* Artifacts : Query / Create
 
 _Refer to Colander documentation for data type explanation._
 
