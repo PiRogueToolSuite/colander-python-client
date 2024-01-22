@@ -19,6 +19,7 @@ pip install colander-client
 
 * Case : Query
 * Devices : Query / Create / Update
+* Observables : Query / Create / Update
 * PiRogueExperiment : Query / Create / Update
 * Artifacts : Query / Create / Update
 
