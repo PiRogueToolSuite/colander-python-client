@@ -1,3 +1,9 @@
+python3-colander-client (1.0.3) unstable; urgency=medium
+
+  * Supports operations on observables
+
+ -- U+039b <hello@pts-project.org>  Mon, 22 Jan 2024 15:00:03 +0100
+
 python3-colander-client (1.0.2) unstable; urgency=medium
 
   * Supports searching for exiting devices by case and or by name. Supports searching cases by name.
