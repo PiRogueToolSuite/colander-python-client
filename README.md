@@ -22,13 +22,20 @@ pip install colander-client
 
 ## Project status
 
-* Case : Query
+* Cases : Query / Create
 * Devices : Query / Create
 * Observables : Query / Create
 * PiRogueExperiment : Query / Create
 * Artifacts : Query / Create
+* Teams : Query
 
 _Refer to Colander documentation for data type explanation._
+
+_For a quick overview of changes, take a look at [revisions](#Revisions)_ 
+
+> [!WARNING]
+> Deprecation warnings have been introduced.
+> Keep an eye on those. Backward compatibilities support will be dropped sooner of later.  
 
 ## Usage example
 
@@ -92,6 +99,45 @@ client.switch_case(None)
 ```
 
 In any state, Case presence at function call takes precedence.
+
+### Case creation
+
+You may want to create a case on the fly. Since v1.0.4, you can create a case like this:
+```python
+from colander_client.domain import TlpPap
+
+fresh_case = client.create_case(name='My beaufiful new case',
+                                description='Sensitive stuff',
+                                tlp=TlpPap.AMBER,
+                                pap=TlpPap.RED)
+```
+> [!IMPORTANT]
+> Even if it is optional, we encourage you to specify `tlp` and `pap` levels
+> for new cases.
+
+You may want to specify which teams you want to share this case with.
+For that, you have to query for teams beforehand:
+
+```python
+my_team_list = client.get_teams(name='my team')
+
+shared_fresh_case = client.create_case(name='My beaufiful new case',
+                                description='Sensitive stuff',
+                                teams=my_team_list,
+                                tlp=TlpPap.WHITE,
+                                pap=TlpPap.GREEN)
+```
+
+Or with a specific team:
+```python
+my_team = client.get_team('a-team-id-i-know')
+
+shared_fresh_case = client.create_case(name='My beaufiful new case',
+                                description='Sensitive stuff',
+                                teams=[my_team])
+```
+> [!NOTE]
+> Be careful to provide a list of team
 
 ### Artifact uploads
 
@@ -159,3 +205,36 @@ experiment = client.create_pirogue_experiment(
         'target_device': pul_device
     })
 ```
+
+### Relations
+
+You can create entities relation like this:
+```python
+artifact_1 = client.upload_artifact( [...] )
+artifact_2 = client.upload_artifact( [...] )
+device_1 = client.create_device( [...] )
+
+relation_1 = client.creation_relation(name='internally refers',
+                                      obj_from=artifact_1,
+                                      obj_to=artifact_2)
+
+relation_2 = client.creation_relation(name='mentions victim name',
+                                      obj_from=artifact_2,
+                                      obj_to=device_1)
+```
+
+
+## Revisions
+### 1.0.4 - August 1st 2024
+ * Add teams basic support (query)
+ * Add case creation support
+ * Add entity relations support (query and creation)
+ * Client domains refactor
+ * Some minor deprecation introduction
+
+### 1.0.3 - January 22th 2024
+ * Add observables support (query and creation)
+
+### 1.0.2 - January 16th 2023
+ * Add case search by name
+ * Add device creation support

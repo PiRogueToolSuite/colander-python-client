@@ -16,4 +16,5 @@ Architecture: all
 Depends: ${misc:Depends},
  ${python3:Depends},
  python3-coreapi,
+ python3-deprecated,
 Description: Colander REST API Python client.

@@ -1,3 +1,9 @@
+python3-colander-client (1.0.4) unstable; urgency=medium
+
+  * Teams and entity relations support. Case creation support.
+
+ -- U+039b <hello@pts-project.org>  Fri, 02 Aug 2024 16:01:14 +0200
+
 python3-colander-client (1.0.3) unstable; urgency=medium
 
   * Supports operations on observables
